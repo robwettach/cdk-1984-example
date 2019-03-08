@@ -1,0 +1,24 @@
+{
+    "Resources": {
+        "MyFirstQueueFF09316A": {
+            "Type": "AWS::SQS::Queue",
+            "Properties": {
+                "QueueName": {
+                    "Fn::If": [
+                        "Test",
+                        "Hello",
+                        "Goodbye"
+                    ]
+                }
+            }
+        }
+    },
+    "Conditions": {
+        "Test": {
+            "Fn::Equals": [
+                "Hello",
+                "world"
+            ]
+        }
+    }
+}
